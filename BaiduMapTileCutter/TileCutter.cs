@@ -76,16 +76,18 @@ namespace BaiduMapTileCutter
 
         private void DeleteCurrentFiles()
         {
-            DirectoryInfo di = new DirectoryInfo(outputPath);
-
-            foreach (FileInfo file in di.GetFiles())
-            {
-                file.Delete();
-            }
-            foreach (DirectoryInfo dir in di.GetDirectories())
-            {
-                dir.Delete(true);
-            }
+            //DirectoryInfo di = new DirectoryInfo(outputPath+"/tiles");
+            //foreach (FileInfo file in di.GetFiles())
+            //{
+            //    file.Delete();
+            //}
+            //foreach (DirectoryInfo dir in di.GetDirectories())
+            //{
+            //    dir.Delete(true);
+            //}
+            //指定文件删除
+            DirectoryInfo di = new DirectoryInfo(outputPath + "/tiles");
+            if (di.Exists) di.Delete();
         }
 
         private int calcTotalTilesByZoom(int zoom)
